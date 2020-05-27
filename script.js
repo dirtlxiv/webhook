@@ -18,7 +18,6 @@ const submit = () => {
         "username": document.getElementById("username").value,
         "avatar_url": document.getElementById("avatar").value,
     }
-    console.log(regex.test(whUrl));
     if (!regex.test(whUrl)) {
         document.getElementById("log").innerHTML = `Reply: ${JSON.stringify({ "message": "A URL is required to send a request", "code": 1 }, null, 2)}`
         return false;
