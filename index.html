@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="dirt_lxiv">
+    <meta name="title" content="dirtlxiv's webhook sender">
+    <meta name="description" content="discord webhook sender">
+    <meta name="keywords" content="discord, webhook">
+    <title>dirt_lxiv's webhook sender</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div id="header">
+        <h>dirt_lxiv's discord webhook sender</h>
+    </div>
+    <div id="container">
+        <div class="center-align">
+            <p>Webhook URL:</p><input type='text' id="whUrl"
+                placeholder="Type Webhook URL here, eg. https://discordapp.com/api/webhooks/[id]/[token]">
+            <p>Content:</p><input type="text" id="content" placeholder="Message you want to send">
+            <p>Bot Username:</p><input type="text" id="username" placeholder="Username for webhook * Optional *">
+            <p>Avatar URL:</p><input type="text" id="avatar" placeholder="URL of the profile picture * Optional *">
+            <br>
+            <button id="btn">Send</button>
+            <div id="output">
+                <p id="logTitle">Log:</p>
+                <p id='log'></p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+<script src="script.js" onload="main()"></script>
+
+</html>
