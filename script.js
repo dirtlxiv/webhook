@@ -1,19 +1,31 @@
-const main = () => {
-    document.getElementById("btn").onclick = () => {
-        let whUrl = document.getElementById("whUrl").value;
-        let body = {
-            "content": document.getElementById("content").value,
-            "username": document.getElementById("username").value,
-            "avatar_url": document.getElementById("avatar").value,
-        }
-        if ((whUrl == null || whUrl == "")) {
-            document.getElementById("log").innerHTML = `Reply: ${JSON.stringify({ "message": "A URL is required to send a request", "code": 1 }, null, 2)}`
-            return false;
-        } else {
-            post(whUrl, body).then(data => {
-                log(data);
-            });
-        }
+const regex = /https:\/\/discordapp\.com\/api\/webhooks\/\d+\/[a-zA-Z0-9-]+/gm;
+
+document.getElementById("btn").onclick = () => {
+    submit();
+}
+
+document.onkeydown = (evt) => {
+    evt = evt || window.event;
+    if (evt.code == "Enter") {
+        submit();
+    }
+};
+
+const submit = () => {
+    let whUrl = document.getElementById("whUrl").value;
+    let body = {
+        "content": document.getElementById("content").value,
+        "username": document.getElementById("username").value,
+        "avatar_url": document.getElementById("avatar").value,
+    }
+    console.log(regex.test(whUrl));
+    if ((whUrl == null || whUrl == "") && regex.test(whUrl)) {
+        document.getElementById("log").innerHTML = `Reply: ${JSON.stringify({ "message": "A URL is required to send a request", "code": 1 }, null, 2)}`
+        return false;
+    } else {
+        post(whUrl, body).then(data => {
+            log(data);
+        });
     }
 }
 
