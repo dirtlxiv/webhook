@@ -1,4 +1,4 @@
-# dirtlxiv.github.io
+# dirtlxiv.github.io/webhook
 Discord Webhook Sender
 
 *Discord => Server Settings => Webhooks => Create Webhook => Copy URL*
