@@ -19,7 +19,7 @@ const submit = () => {
         "avatar_url": document.getElementById("avatar").value,
     }
     if (!regex.test(whUrl)) {
-        document.getElementById("log").innerHTML = `Reply: ${JSON.stringify({ "message": "A URL is required to send a request", "code": 1 }, null, 2)}`
+        log({ "message": "A URL is required to send a request", "code": 1 })
         return false;
     } else {
         post(whUrl, body).then(data => {
@@ -47,8 +47,8 @@ const post = (whUrl, body) => {
     }
 }
 
+log({ message: { "step one": "Paste your discord webhook URL into the Webhook URL textbox", "step two": "Type your message into the Content textbox", "step three": "Click the Send button", }, "code": 0 })
+
 const log = (data) => {
     document.getElementById("log").innerHTML = `Reply: ${JSON.stringify(data, null, 2)}`
 }
-
-document.getElementById("log").innerHTML = `Reply: ${JSON.stringify({ message: { "step one": "Paste your discord webhook URL into the Webhook URL textbox", "step two": "Type your message into the Content textbox", "step three": "Click the Send button", }, "code": 0 }, null, 2)}`
