@@ -4,6 +4,10 @@ document.getElementById("btn").onclick = () => {
     submit();
 }
 
+const log = (data) => {
+    document.getElementById("log").innerHTML = `Reply: ${JSON.stringify(data, null, 2)}`
+}
+
 document.onkeydown = (evt) => {
     evt = evt || window.event;
     if (evt.code == "Enter") {
@@ -48,7 +52,3 @@ const post = (whUrl, body) => {
 }
 
 log({ message: { "step one": "Paste your discord webhook URL into the Webhook URL textbox", "step two": "Type your message into the Content textbox", "step three": "Click the Send button", }, "code": 0 })
-
-const log = (data) => {
-    document.getElementById("log").innerHTML = `Reply: ${JSON.stringify(data, null, 2)}`
-}
